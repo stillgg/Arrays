@@ -1,7 +1,9 @@
-'use strict';
+"use strict";
 
 const removeElements = (array, ...items) => {
-  // Remove multiple items from array modifying original array
+  const filtered = array.filter((i) => !items.includes(i));
+  array.forEach((item, index) => (array[index] = filtered[index]));
+  array.length = filtered.length;
 };
 
 module.exports = { removeElements };
